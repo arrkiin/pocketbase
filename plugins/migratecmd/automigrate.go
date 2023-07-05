@@ -62,7 +62,7 @@ func (p *plugin) afterCollectionChange() func(*core.ModelEvent) error {
 			action = "updated_" + old.Name
 		}
 
-		appliedTime := time.Now().Unix()
+		appliedTime := time.Now().UnixMicro()
 		name := fmt.Sprintf("%d_%s.%s", appliedTime, action, p.options.TemplateLang)
 		filePath := filepath.Join(p.options.Dir, name)
 
